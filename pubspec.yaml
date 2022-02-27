@@ -38,7 +38,12 @@ dependencies:
   flushbar: ^1.10.4
   steel_crypt: ^3.0.0+1
   shared_preferences: ^2.0.13
+ 
+  characters: ^1.1.0-nullsafety.5
+
+  
 dev_dependencies:
+  test: ^1.16.0-nullsafety.13
   flutter_test:
     sdk: flutter
 
