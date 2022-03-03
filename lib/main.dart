@@ -1,3 +1,4 @@
+import 'package:cuideam/menu.dart';
 import 'package:flutter/material.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flushbar/flushbar.dart';
@@ -311,11 +312,19 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin  
     String pas = sharedprefs.getString('pass') ?? "0";
     String key = sharedprefs.getString('key') ?? "0";
     String key16 = sharedprefs.getString('keys') ?? "0";
+
+    String login = sharedprefs.getString('log') ?? "0";
+
     setState(() {
       if(  "0" == mails ){
         print("te faltan datos");
       }else{
         print('ya hay una cuenta');
+        if(login == "1"){
+          Navigator.of(context).push(
+            MaterialPageRoute(builder: (context) => Menu()),
+          );
+        }
       }
     });
   }
@@ -338,6 +347,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin  
     await sharedprefs.setString("pass", pass);
     await sharedprefs.setString("key", llave);
     await sharedprefs.setString("keys", llabe16);
+    await sharedprefs.setString('log', "1") ;
     _GetData(mail, pass);
     //setState(() {Navigator.of(context).push(MaterialPageRoute(builder: (context) => introduction()),);});
   }
@@ -357,6 +367,9 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin  
         print("Correo: "+mails+" "+"Password: "+pas);
         if(mail == mails && pass == result){
           mensaje('Inicio de sesión exitosa','Bienvenido a Cuideam');
+          Navigator.of(context).push(
+            MaterialPageRoute(builder: (context) => Menu()),
+          );
           print('vamos al menu');
         }else{
           mensaje('Error','Cuenta no existente');
