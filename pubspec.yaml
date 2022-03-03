@@ -38,6 +38,12 @@ dependencies:
   flushbar: ^1.10.4
   steel_crypt: ^3.0.0+1
   shared_preferences: ^2.0.13
+<<<<<<< HEAD
+ 
+  characters: ^1.1.0-nullsafety.5
+
+  
+=======
   flutter_launcher_icons_maker: "^0.10.1" #flutter pub run flutter_launcher_icons_maker:main
   flutter_native_splash: ^1.3.2
   panorama: ^0.4.1
@@ -53,7 +59,9 @@ flutter_icons:
   #image_path_android: "assets/specify_android.png"
   image_path: "assets/manejo-del-estres.png"
 
+>>>>>>> ca00bf8 (v0.0.5)
 dev_dependencies:
+  test: ^1.16.0-nullsafety.13
   flutter_test:
     sdk: flutter
 
