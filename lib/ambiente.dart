@@ -52,7 +52,7 @@ class _MyHomePageState extends State<MyAmbiente> {
   @override
     void initState() {
       super.initState();
-      musica("Weightless.mp3");
+      //musica("Weightless.mp3");
     }
 
   Widget hotspotButton({String? text, IconData? icon, VoidCallback? onPressed}) {

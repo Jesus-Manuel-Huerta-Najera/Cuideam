@@ -1,4 +1,7 @@
+import 'package:cuideam/mp3.dart';
+import 'package:cuideam/videos.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'ambiente.dart';
 
@@ -61,12 +64,54 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin  
       body:  TabBarView(
         controller: _tabController,
         children:  [
-         const Center(child: Text("Muy pronto"),),
+          const Center(child:  Text("Muy pronto..."),),
           MyAmbiente(),
-          const Center(child: Text("Muy pronto"),)
+          Musica()
 
         ],
       ),
+
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            UserAccountsDrawerHeader(
+              accountName: const Text('Más que ver',style: TextStyle(fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),),
+              accountEmail: const Text('V 0.6.4',style: TextStyle(fontSize: 15,
+                fontWeight: FontWeight.bold,
+              ),),
+              currentAccountPicture: CircleAvatar(
+                radius:150,
+                child: Image.asset("assets/lago.jpg"),
+              ),
+              decoration: const BoxDecoration(
+                color: Colors.blue,
+              ),
+            ),
+
+
+            ListTile(
+              title: const Text('Videos'),
+              onTap: () {
+
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => Video()),
+                );
+              },
+            ),
+            ListTile(
+              title: const Text('Salir'),
+              onTap: () {
+                // Update the state of the app.
+                // ...
+                SystemNavigator.pop();
+              },
+            ),
+          ],
+        ),
+      )  ,
     );
 
   }

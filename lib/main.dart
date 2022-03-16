@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-// @dart=2.9
-=======
 import 'package:cuideam/menu.dart';
->>>>>>> ca00bf8 (v0.0.5)
 import 'package:flutter/material.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flushbar/flushbar.dart';
@@ -176,7 +172,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin  
                             keyboardType: TextInputType.emailAddress,
                             controller: _textMail,
                             validator: (value){
-                              if(value.isEmpty){
+                              if(value!.isEmpty){
                                 return 'Faltan datos';
                               }else{
                                 bool _correctEmail = EmailValidator.validate(value);
@@ -209,7 +205,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin  
                             keyboardType: TextInputType.visiblePassword,
                             controller: _textPass,
                               validator: (value){
-                              if(value.isEmpty){
+                              if(value!.isEmpty){
                                 return 'Faltan datos';
                               }else{
 
@@ -240,7 +236,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin  
                  const SizedBox(height: 60,),
                   InkWell(
                     onTap: (){
-                      if(_formKey.currentState.validate()){
+                      if(_formKey.currentState!.validate()){
                         //mensaje('Cuenta creada','Bienvenido a Cuideam');
                         main(_textPass.text);
                         _GetData(_textMail.text, encriptado);
@@ -268,7 +264,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin  
                   const SizedBox(height: 20,),
                   InkWell(
                     onTap: (){
-                      if(_formKey.currentState.validate()){
+                      if(_formKey.currentState!.validate()){
                         //mensaje('Inicio de sesión exitosa','Bienvenido a Cuideam');
                         //main(_textPass.text);
                         _Sesion(_textMail.text, _textPass.text);
