@@ -75,20 +75,17 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin  
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
-            UserAccountsDrawerHeader(
+           const UserAccountsDrawerHeader(
               accountName: const Text('Más que ver',style: TextStyle(fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),),
               accountEmail: const Text('V 0.6.4',style: TextStyle(fontSize: 15,
                 fontWeight: FontWeight.bold,
               ),),
-              currentAccountPicture: CircleAvatar(
-                radius:150,
-                child: Image.asset("assets/lago.jpg"),
-              ),
-              decoration: const BoxDecoration(
-                color: Colors.blue,
-              ),
+              //currentAccountPicture: CircleAvatar(radius:150, child: Image.asset("assets/lago.jpg"),),
+              //decoration: const BoxDecoration(
+               // color: Colors.blue,
+             // ),
             ),
 
 
