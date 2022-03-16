@@ -7,6 +7,7 @@ import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
+import 'menu.dart';
 import 'player/PlayingControls.dart';
 import 'player/PositionSeekWidget.dart';
 import 'player/SongsSelector.dart';
@@ -48,10 +49,18 @@ class _MyHomePageState extends State<Myvideo> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(title: const Text('Videos'),),
+    return Scaffold(
+        appBar: AppBar(title: const Text('Videos'),
+            actions: [ //add
+              IconButton(
+                  icon: Icon(Icons.arrow_back),
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute
+                      (builder: (context) => Menu()));
+                  }
+              )
+            ]
+        ),
         backgroundColor: Colors.blueGrey,
         body: Padding(
           padding: const EdgeInsets.all(25),
@@ -109,7 +118,7 @@ class _MyHomePageState extends State<Myvideo> {
             ],
           ),
         ),
-      ),
+
     );
   }
 }
