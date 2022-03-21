@@ -18,5 +18,60 @@
     "name": "Europa",
     "img": "assets/europa.jpg",
     "text": "assets/PaisajesEuropeos.mp4"
+  }],
+  "Motivacion": [{
+  "id": 1,
+  "sab": "01",
+  "name": "Viktor Frankl",
+  "text": "Intenta hacer todo lo antes posible y no en el último momento. Esto garantiza que cuando estés sobrecargado de trabajo, no enfrentes el estrés adicional de saber que todavía hay algo por hacer."
+
+},{
+  "id": 2,
+  "sab": "02",
+  "name": "Prem Prakash",
+  "text": "Nuestras tensiones, ansiedades, dolores y problemas surgen porque no vemos al mundo, a los demás, ni a nosotros mismos como dignos de amor."
+},{
+  "id": 3,
+  "sab": "03",
+  "name": "Lauren Weisberger",
+  "text": "No hay estrés que no puedas calmar, no hay problema que no puedas resolver."
+},{
+    "id": 4,
+    "sab": "04",
+    "name": "Astrid Alauda",
+    "text": "No permitas que tu mente intimide a tu cuerpo haciéndole creer que debes llevar la carga de tus preocupaciones."
+
+  },{
+    "id": 5,
+    "sab": "05",
+    "name": "William James",
+    "text": "La mejor arma contra el estrés es nuestra habilidad para elegir un pensamiento sobre el otro."
+  },{
+    "id": 6,
+    "sab": "06",
+    "name": "Wayne Dyer",
+    "text": "No hay estrés en el mundo, solo gente creando pensamientos estresantes y luego actuando en consecuencia."
+  },{
+    "id": 7,
+    "sab": "07",
+    "name": "Kala Stevenson",
+    "text": "La risa ayuda a equilibrar una situación estresante."
+
+  },{
+    "id": 8,
+    "sab": "08",
+    "name": "Robert Eliot",
+    "text": "La regla número uno es: no te preocupes por las cosas pequeñas. La regla número dos es: todo son cosas pequeñas."
+  },{
+    "id": 9,
+    "sab": "09",
+    "name": "Steve Maraboli",
+    "text": "Debes aprender a dejar ir. Libera el estrés. De todos modos, nunca tuviste el control."
+  },{
+    "id": 10,
+    "sab": "10",
+    "name": "Dada Vaswani",
+    "text": "Una buena manera de superar el estrés es ayudar a otros a salir del mismo."
+
   }]
 }
