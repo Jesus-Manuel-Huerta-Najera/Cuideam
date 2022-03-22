@@ -1,9 +1,7 @@
 import 'dart:async';
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
-
 import 'player/PlayingControls.dart';
 import 'player/PositionSeekWidget.dart';
 import 'player/SongsSelector.dart';
@@ -32,13 +30,12 @@ class _MyHomePageState extends State<Mymusica> {
   final audios = <Audio>[
     Audio(
       'assets/Marconi Union - Weightless.mp3',
-      //playSpeed: 2.0,
       metas: Metas(
-        id: 'Weightless',
-        title: 'Weightless',
-        artist: 'Marconi Union',
-        album: 'Single',
-        image: const MetasImage.asset('assets/Weightless.jpg'),
+          id: 'Weightless',
+          title: 'Weightless',
+          artist: 'Marconi Union',
+          album: 'Single',
+          image: const MetasImage.asset('assets/Weightless.jpg')
       ),
     ),
     Audio(
@@ -77,10 +74,6 @@ class _MyHomePageState extends State<Mymusica> {
   void initState() {
     super.initState();
     _assetsAudioPlayer = AssetsAudioPlayer.newPlayer();
-    //_subscriptions.add(_assetsAudioPlayer.playlistFinished.listen((data) {
-    //  print('finished : $data');
-    //}));
-    //openPlayer();
     _subscriptions.add(_assetsAudioPlayer.playlistAudioFinished.listen((data) {
       print('playlistAudioFinished : $data');
     }));
@@ -115,17 +108,16 @@ class _MyHomePageState extends State<Mymusica> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: const Color.fromRGBO(0, 151, 167, 150),
         body: SafeArea(
           child: SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.only(bottom: 48.0),
+              padding: const EdgeInsets.only(bottom: 35.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  SizedBox(
-                    height: 20,
+                  const SizedBox(
+                    height: 30,
                   ),
                   Stack(
                     fit: StackFit.passthrough,
@@ -140,10 +132,11 @@ class _MyHomePageState extends State<Mymusica> {
                               return Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Neumorphic(
-                                  style: NeumorphicStyle(
+                                  style: const NeumorphicStyle(
                                     depth: 8,
                                     surfaceIntensity: 1,
-                                    shape: NeumorphicShape.concave,
+                                    lightSource: LightSource.topLeft,
+                                    color: Colors.white60,
                                     boxShape: NeumorphicBoxShape.circle(),
                                   ),
                                   child: myAudio.metas.image?.path == null
@@ -152,28 +145,28 @@ class _MyHomePageState extends State<Mymusica> {
                                       ImageType.network
                                       ? Image.network(
                                     myAudio.metas.image!.path,
-                                    height: 150,
-                                    width: 150,
+                                    height: 300,
+                                    width: 300,
                                     fit: BoxFit.contain,
                                   )
                                       : Image.asset(
                                     myAudio.metas.image!.path,
-                                    height: 150,
-                                    width: 150,
+                                    height: 300,
+                                    width: 300,
                                     fit: BoxFit.contain,
                                   ),
                                 ),
                               );
                             }
-                            return SizedBox.shrink();
+                            return const SizedBox.shrink();
                           }),
 
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   _assetsAudioPlayer.builderCurrent(
@@ -214,7 +207,6 @@ class _MyHomePageState extends State<Mymusica> {
                                   if (infos == null) {
                                     return SizedBox();
                                   }
-                                  //print('infos: $infos');
                                   return Column(
                                     children: [
                                       PositionSeekWidget(
@@ -234,7 +226,7 @@ class _MyHomePageState extends State<Mymusica> {
                                             },
                                             child: Text('-10'),
                                           ),
-                                          SizedBox(
+                                          const SizedBox(
                                             width: 12,
                                           ),
                                           NeumorphicButton(
@@ -252,8 +244,8 @@ class _MyHomePageState extends State<Mymusica> {
                           ],
                         );
                       }),
-                  SizedBox(
-                    height: 20,
+                  const SizedBox(
+                    height: 30,
                   ),
                   _assetsAudioPlayer.builderCurrent(
                       builder: (BuildContext context, Playing? playing) {
@@ -265,7 +257,7 @@ class _MyHomePageState extends State<Mymusica> {
                               showNotification: true,
                               headPhoneStrategy:
                               HeadPhoneStrategy.pauseOnUnplugPlayOnPlug,
-                              audioFocusStrategy: AudioFocusStrategy.request(
+                              audioFocusStrategy: const AudioFocusStrategy.request(
                                   resumeAfterInterruption: true),
                             );
                           },
@@ -276,11 +268,10 @@ class _MyHomePageState extends State<Mymusica> {
                                 autoStart: true,
                                 showNotification: true,
                                 playInBackground: PlayInBackground.enabled,
-                                audioFocusStrategy: AudioFocusStrategy.request(
+                                audioFocusStrategy: const AudioFocusStrategy.request(
                                     resumeAfterInterruption: true,
                                     resumeOthersPlayersAfterDone: true),
                                 headPhoneStrategy: HeadPhoneStrategy.pauseOnUnplug,
-
                               );
                             } catch (e) {
                               print(e);
@@ -289,7 +280,6 @@ class _MyHomePageState extends State<Mymusica> {
                           playing: playing,
                         );
                       }),
-
                 ],
               ),
             ),

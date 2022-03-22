@@ -38,6 +38,7 @@ class _MyVideoPlayerPageState extends State<MyVideoPlayerPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey.shade900,
       appBar: AppBar(
         title: Text(title),
       ),

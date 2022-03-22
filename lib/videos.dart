@@ -1,16 +1,10 @@
 import 'dart:async';
 import 'dart:convert';
-import 'dart:io';
 import 'package:cuideam/videoplayer.dart';
 import 'package:flutter/material.dart';
-import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
-
 import 'menu.dart';
-import 'player/PlayingControls.dart';
-import 'player/PositionSeekWidget.dart';
-import 'player/SongsSelector.dart';
 
 class Video extends StatelessWidget {
   // This widget is the root of your application.
@@ -45,48 +39,59 @@ class _MyHomePageState extends State<Myvideo> {
     readJson();
   }
 
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: const Text('Videos'),
-            actions: [ //add
-              IconButton(
-                  icon: Icon(Icons.arrow_back),
-                  onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute
-                      (builder: (context) => Menu()));
-                  }
-              )
-            ]
-        ),
-        backgroundColor: Colors.blueGrey,
-        body: Padding(
-          padding: const EdgeInsets.all(25),
-          child: Column(
-            children: [
-              const Padding(padding: EdgeInsets.only(top: 20)),
-              // Display the data loaded from sample.json
-              _items.isNotEmpty
-                  ? Expanded(
-                child: ListView.builder(
-                  itemCount: _items.length,
-                  itemBuilder: (context, index) {
-                    return Column(
-                      children: <Widget>[
-                        Card(
-                          color: Colors.lightBlueAccent,
+      appBar: AppBar(title: const Padding(
+        padding: EdgeInsets.all(8.0),
+        child: Text('Videos'),
+      ),
+          actions: [ //add
+            IconButton(
+                icon: const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Icon(Icons.arrow_back),
+                ),
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute
+                    (builder: (context) => Menu()));
+                }
+            )
+          ]
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(25),
+        child: Column(
+          children: [
+            const Padding(padding: EdgeInsets.only(top: 20)),
+            // Display the data loaded from sample.json
+            _items.isNotEmpty
+                ? Expanded(
+              child: ListView.builder(
+                itemCount: _items.length,
+                itemBuilder: (context, index) {
+                  return Column(
+                    children: <Widget>[
+                      Card(
+                        elevation: 15,
+                        color: Colors.lightGreen.shade100,
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+                        margin: const EdgeInsets.only(left: 5, top: 15, right: 5, bottom: 15),
+                        child: Padding(
+                          padding: const EdgeInsets.only(bottom: 40.0, top: 40, right: 1, left: 1),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             children: <Widget>[
                               ListTile(
-                                leading: Text(_items[index]["sab"],style: const TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 25
-                                ),),
+                                leading: Padding(
+                                  padding: const EdgeInsets.only(left: 5.0),
+                                  child: Text(_items[index]["sab"],style: const TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 25
+                                  ),),
+                                ),
                                 title: Text(_items[index]["name"],style: const TextStyle(
-                                    fontWeight: FontWeight.bold,
+                                    fontWeight: FontWeight.w400,
                                     fontSize: 20
                                 ),),
                                 onTap: (){
@@ -99,25 +104,28 @@ class _MyHomePageState extends State<Myvideo> {
                                     (builder: (context) => MyVideoPlayerPage
                                     (_items[index]["text"],_items[index]["name"])));
                                   print(_items[index]["text"]);
-                                },child:  Image.asset(_items[index]["img"],
-                                  width: 150, height: 150, fit: BoxFit.contain,),),
+                                },
+                                  child:  Image.asset(_items[index]["img"],
+                                    width: 150,
+                                    height: 150,
+                                    fit: BoxFit.contain,
 
-                              )
+                                  ),
+                                ),),
                             ],
                           ),
                         ),
-                        const Padding(padding: EdgeInsets.only(top: 15))
-                      ],
-                    );
-                  },
-
-
-                ),
-              )
-                  : Container()
-            ],
-          ),
+                      ),
+                      const Padding(padding: EdgeInsets.only(top: 15))
+                    ],
+                  );
+                },
+              ),
+            )
+                : Container()
+          ],
         ),
+      ),
 
     );
   }

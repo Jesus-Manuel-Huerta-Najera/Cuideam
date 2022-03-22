@@ -57,7 +57,7 @@ flutter_icons:
   android: "launcher_icon"
   ios: true
   #image_path_android: "assets/specify_android.png"
-  image_path: "assets/manejo-del-estres.png"
+  image_path: "assets/logo.png"
 
 dev_dependencies:
   test: ^1.16.0-nullsafety.13
