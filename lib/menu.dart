@@ -83,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin  
               accountName: Text('Descubre también...',style: TextStyle(fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),),
-              accountEmail: Text('V 0.8.5',style: TextStyle(fontSize: 15,
+              accountEmail: Text('V 1.0.0',style: TextStyle(fontSize: 15,
                 fontWeight: FontWeight.bold,
               ),),
               decoration: BoxDecoration(
@@ -115,7 +115,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin  
               padding: const EdgeInsets.only(top: 8, bottom: 8),
               child: ListTile(
                 tileColor: const Color.fromRGBO(136, 230, 245, 0.3),
-                title: const Text('Encuestas'),
+                title: const Text('Test estrés'),
                 onTap: () {
 
                   Navigator.of(context).push(
