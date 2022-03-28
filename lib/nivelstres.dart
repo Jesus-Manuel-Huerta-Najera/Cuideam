@@ -39,7 +39,8 @@ class _MyHomePageState extends State<MyNivel> with TickerProviderStateMixin {
       double punto = sharedprefs.getDouble('puntos') ?? 30;
       setState(() {
         if (punto == 30) {
-          punto = 30;
+          puntos = 30;
+          print("aqui");
           txt = "";
         }
         else if (punto == 30) {
@@ -70,8 +71,8 @@ class _MyHomePageState extends State<MyNivel> with TickerProviderStateMixin {
     @override
     Widget build(BuildContext context) {
       List<_PieData> data = [
-        _PieData("" + puntos.toString(), puntos, "Estrés"),
-        _PieData("" + sin.toString(), sin, "Alivio"),
+        _PieData("" + puntos.toString()+"%", puntos, "Estrés"),
+        _PieData("" + sin.toString()+"%", sin, "Alivio"),
       ];
       return Container(
         decoration: const BoxDecoration(
@@ -95,7 +96,59 @@ class _MyHomePageState extends State<MyNivel> with TickerProviderStateMixin {
                       left: 5, top: 10, right: 5, bottom: 25),
 
 
-                  child: puntos != 30 ? Column(
+                  child: puntos == 30 ? Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const SizedBox(height: 40,),
+                        Container(
+                          padding: const EdgeInsets.only(
+                              left: 15, top: 1, right: 15, bottom: 15),
+                          child: const Text(
+                            'No hay información', style: TextStyle(
+                              fontWeight: FontWeight.w700,
+                              fontSize: 30,
+                              color: Color.fromRGBO(33, 33, 33, 1)
+                          ),),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.only(left: 40, right: 40),
+                          child: const Text(
+                            'Estas a un botón de saber tu nivel de estrés',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w300,
+                            ),),
+                        ),
+                        const SizedBox(height: 40,),
+                        InkWell(
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute
+                              (builder: (context) => Encuesta()));
+                          },
+                          child: Container(
+                            margin: const EdgeInsets.only(
+                                top: 5, left: 55, right: 55, bottom: 25),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: const [
+                                Padding(padding: EdgeInsets.all(15),
+                                  child: Text(
+                                    'Hagamos tu test', style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w300,
+                                      color: Colors.black
+                                  ),),
+                                )
+                              ],
+                            ),
+                            decoration: BoxDecoration(
+                              color: Colors.lightGreen.shade300,
+                              borderRadius: BorderRadius.circular(25),
+                            ),
+
+                          ),
+                        ),
+                      ]): Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
@@ -174,59 +227,7 @@ class _MyHomePageState extends State<MyNivel> with TickerProviderStateMixin {
                         ),
                       ),
                     ],
-                  ) : Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const SizedBox(height: 40,),
-                        Container(
-                          padding: const EdgeInsets.only(
-                              left: 15, top: 1, right: 15, bottom: 15),
-                          child: const Text(
-                            'No hay información', style: TextStyle(
-                              fontWeight: FontWeight.w700,
-                              fontSize: 30,
-                              color: Color.fromRGBO(33, 33, 33, 1)
-                          ),),
-                        ),
-                        Container(
-                          padding: const EdgeInsets.only(left: 40, right: 40),
-                          child: const Text(
-                            'Estas a un botón de saber tu nivel de estrés',
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w300,
-                            ),),
-                        ),
-                        const SizedBox(height: 40,),
-                        InkWell(
-                          onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute
-                              (builder: (context) => Encuesta()));
-                          },
-                          child: Container(
-                            margin: const EdgeInsets.only(
-                                top: 5, left: 55, right: 55, bottom: 25),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: const [
-                                Padding(padding: EdgeInsets.all(15),
-                                  child: Text(
-                                    'Hagamos tu test', style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w300,
-                                      color: Colors.black
-                                  ),),
-                                )
-                              ],
-                            ),
-                            decoration: BoxDecoration(
-                              color: Colors.lightGreen.shade300,
-                              borderRadius: BorderRadius.circular(25),
-                            ),
-
-                          ),
-                        ),
-                      ]),
+                  ),
                 ),
               )
             ],
