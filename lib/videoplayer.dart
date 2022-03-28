@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:video_player/video_player.dart';
 
 class MyVideoPlayerPage extends StatefulWidget {
@@ -112,6 +113,7 @@ class _ControlsOverlay extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: <Widget>[
+
         AnimatedSwitcher(
           duration: const Duration(milliseconds: 50),
           reverseDuration: const Duration(milliseconds: 200),
@@ -129,6 +131,7 @@ class _ControlsOverlay extends StatelessWidget {
             ),
           ),
         ),
+
         GestureDetector(
           onTap: () {
             controller.value.isPlaying ? controller.pause() : controller.play();

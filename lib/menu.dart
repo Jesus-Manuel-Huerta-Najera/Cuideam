@@ -1,5 +1,7 @@
+import 'package:cuideam/encuesta.dart';
 import 'package:cuideam/frases.dart';
 import 'package:cuideam/mp3.dart';
+import 'package:cuideam/nivelstres.dart';
 import 'package:cuideam/videos.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -65,6 +67,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin  
       body:  TabBarView(
         controller: _tabController,
         children:  [
+
           Frases(),
           MyAmbiente(),
           Musica()
@@ -83,6 +86,12 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin  
               accountEmail: Text('V 0.8.5',style: TextStyle(fontSize: 15,
                 fontWeight: FontWeight.bold,
               ),),
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage("assets/lago.jpg"),
+                      fit: BoxFit.cover
+                  )
+              ),
               //currentAccountPicture: CircleAvatar(radius:150, child: Image.asset("assets/lago.jpg"),),
               //decoration: const BoxDecoration(
               // color: Colors.blue,
@@ -90,8 +99,35 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin  
             ),
 
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.only(top: 8, bottom: 8),
               child: ListTile(
+                tileColor: const Color.fromRGBO(136, 230, 245, 0.3),
+                title: const Text('Nivel estrés'),
+                onTap: () {
+
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => Nivel()),
+                  );
+                },
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 8, bottom: 8),
+              child: ListTile(
+                tileColor: const Color.fromRGBO(136, 230, 245, 0.3),
+                title: const Text('Encuestas'),
+                onTap: () {
+
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => Encuesta()),
+                  );
+                },
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 8, bottom: 8),
+              child: ListTile(
+                tileColor: const Color.fromRGBO(136, 230, 245, 0.3),
                 title: const Text('Videos'),
                 onTap: () {
 
@@ -102,8 +138,9 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin  
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.only(top: 8, bottom: 8),
               child: ListTile(
+                tileColor: const Color.fromRGBO(136, 230, 245, 0.3),
                 title: const Text('Salir'),
                 onTap: () {
                   // Update the state of the app.
