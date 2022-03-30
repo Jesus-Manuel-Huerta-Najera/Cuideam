@@ -32,7 +32,7 @@ class MyEncuesta extends StatefulWidget {
 class _MyHomePageState extends State<MyEncuesta> with TickerProviderStateMixin  {
   final _formKey = GlobalKey<FormState>();
   TextToSpeech tts = TextToSpeech();
-  String p1 = "01 ¿Durmes toda la noche de corrido?",
+  String p1 = "01 ¿Duermes toda la noche de corrido?",
          p2 = "02 ¿Te has mudado recientemente?",
          p3 = "03 ¿Estás decaído y agotado?",
          p4 = "04 ¿Sientes dolores de cabeza con frecuencia?",
@@ -126,7 +126,7 @@ class _MyHomePageState extends State<MyEncuesta> with TickerProviderStateMixin  
                     ),
                     Container(
                       padding: const EdgeInsets.all(1),
-                      child: const Text('Llena el test y veamos el resultado', style: TextStyle(
+                      child: const Text('Llena el cuestionario y veamos el resultado', style: TextStyle(
                         fontSize: 20,
                         fontWeight:  FontWeight.w300,
                       ),),
