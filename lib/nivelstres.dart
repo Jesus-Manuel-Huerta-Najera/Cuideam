@@ -154,7 +154,7 @@ class _MyHomePageState extends State<MyNivel> with TickerProviderStateMixin {
                       Container(
                         padding: const EdgeInsets.only(
                             left: 15, top: 10, right: 15, bottom: 0),
-                        child: const Text('Tines un:', style: TextStyle(
+                        child: const Text('Tienes un:', style: TextStyle(
                             fontWeight: FontWeight.w700,
                             fontSize: 30,
                             color: Color.fromRGBO(33, 33, 33, 1)
